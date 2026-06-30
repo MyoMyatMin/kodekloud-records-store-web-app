@@ -238,19 +238,19 @@ jobs:
 
       # Step 5: Uncomment to add container vulnerability scanning
       # 👇 Uncomment this section in Step 5: Container Security
-      # - name: Scan Container for Vulnerabilities
-      #   run: |
-      #     echo "🔍 Scanning container for vulnerabilities..."
+      - name: Scan Container for Vulnerabilities
+        run: |
+          echo "🔍 Scanning container for vulnerabilities..."
           
-      #     # Option A: Scan everything (may find system vulnerabilities)
-      #     echo "📊 Full vulnerability report:"
+          # Option A: Scan everything (may find system vulnerabilities)
+          echo "📊 Full vulnerability report:"
           
-      #     grype ghcr.io/${{ env.REPO_LC }}/kodekloud-records:${{ env.VERSION }} \
-      #       --fail-on high \
-      #       --only-fixed 
+          grype ghcr.io/${{ env.REPO_LC }}/kodekloud-records:${{ env.VERSION }} \
+            --fail-on high \
+            --only-fixed 
           
-      #     echo "✅ Container vulnerability scan completed"
-      #     echo "💡 Note: In production, configure scans based on your risk tolerance"
+          echo "✅ Container vulnerability scan completed"
+          echo "💡 Note: In production, configure scans based on your risk tolerance"
 
   # Stage 4: Deploy to Staging (AUTOMATIC after build succeeds)
   deploy-staging:
